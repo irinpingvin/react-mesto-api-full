@@ -1,0 +1,11 @@
+.profile__name-editor {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 0 7px 0;
+}
+
+@media screen and (min-width: 1024px) {
+  .profile__name-editor {
+    margin: 0;
+  }
+}

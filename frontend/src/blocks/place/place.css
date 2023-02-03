@@ -1,0 +1,9 @@
+.place {
+  position: relative;
+  display: grid;
+  grid-template-columns: 282px;
+  grid-template-areas:
+  "places__pic"
+  "places__title";
+  margin: 0;
+}

@@ -1,0 +1,11 @@
+.place__sign {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  grid-area: places__title;
+  padding: 26px 21px;
+  border-radius: 0 0 10px 10px;
+  box-sizing: border-box;
+  margin: 0;
+}

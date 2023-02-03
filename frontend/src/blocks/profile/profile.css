@@ -1,0 +1,25 @@
+.profile {
+  padding-top: 42px;
+  max-width: 282px;
+  display: grid;
+  grid-template-columns: 282px;
+  grid-template-areas:
+  "profile__avatar"
+  "profile__personal-data"
+  "profile__add-button";
+  justify-items: center;
+}
+
+@media screen and (min-width: 1024px) {
+  .profile {
+    padding-top: 40px;
+    max-width: 880px;
+    grid-template-columns: 120px 1fr 150px;
+    grid-template-rows: 120px 1fr;
+    grid-template-areas:
+    "profile__avatar profile__personal-data profile__add-button";
+    justify-items: start;
+    align-items: center;
+    gap: 0 30px;
+  }
+}

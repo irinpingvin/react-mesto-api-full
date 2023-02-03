@@ -1,0 +1,11 @@
+.header__info {
+  display: flex;
+  align-items: center;
+  margin-right: 30px;
+}
+
+@media screen and (min-width: 1024px) {
+  .header__info {
+    margin-right: 0;
+  }
+}
