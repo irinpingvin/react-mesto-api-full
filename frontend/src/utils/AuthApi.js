@@ -1,12 +1,12 @@
-import {BASE_AUTH_URL} from "./constants";
+import { BASE_AUTH_URL, HEADERS } from "./constants";
 
 class AuthApi {
   #baseUrl;
   #headers;
 
-  constructor(baseUrl) {
+  constructor(baseUrl, headers) {
     this.#baseUrl = baseUrl;
-    this.#headers = { "Content-Type": "application/json" };
+    this.#headers = headers;
   }
 
   #handleServerResponse(promise) {
@@ -29,19 +29,17 @@ class AuthApi {
     return this.#handleServerResponse(fetch(`${this.#baseUrl}/signin`, {
       method: 'POST',
       headers: this.#headers,
+      credentials: 'include',
       body: JSON.stringify(userData)
     }));
   }
 
-  validateToken(token) {
+  validateToken() {
     return this.#handleServerResponse(fetch(`${this.#baseUrl}/users/me`, {
       method: 'GET',
-      headers: {
-        "Content-Type": "application/json",
-        "Authorization" : `Bearer ${token}`
-      }
+      credentials: 'include',
     }));
   }
 }
 
-export const authApi = new AuthApi(BASE_AUTH_URL);
+export const authApi = new AuthApi(BASE_AUTH_URL, HEADERS);

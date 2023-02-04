@@ -18,13 +18,17 @@ class Api {
   }
 
   getUserInfo() {
-    return this.#handleServerResponse(fetch(`${this.#baseUrl}/users/me`, {headers: this.#headers}));
+    return this.#handleServerResponse(fetch(`${this.#baseUrl}/users/me`, {
+      headers: this.#headers,
+      credentials: 'include',
+    }));
   }
 
   editUserInfo(userInfo) {
     return this.#handleServerResponse(fetch(`${this.#baseUrl}/users/me`, {
       method: 'PATCH',
       headers: this.#headers,
+      credentials: 'include',
       body: JSON.stringify(userInfo)
     }));
   }
@@ -33,18 +37,23 @@ class Api {
     return this.#handleServerResponse(fetch(`${this.#baseUrl}/users/me/avatar`, {
       method: 'PATCH',
       headers: this.#headers,
+      credentials: 'include',
       body: JSON.stringify(avatarInfo)
     }));
   }
 
   getCards() {
-    return this.#handleServerResponse(fetch(`${this.#baseUrl}/cards`, {headers: this.#headers}));
+    return this.#handleServerResponse(fetch(`${this.#baseUrl}/cards`, {
+      headers: this.#headers,
+      credentials: 'include',
+    }));
   }
 
   addCard(cardInfo) {
     return this.#handleServerResponse(fetch(`${this.#baseUrl}/cards`, {
       method: 'POST',
       headers: this.#headers,
+      credentials: 'include',
       body: JSON.stringify(cardInfo)
     }));
   }
@@ -52,21 +61,24 @@ class Api {
   removeCard(id) {
     return this.#handleServerResponse(fetch(`${this.#baseUrl}/cards/${id}`, {
       method: 'DELETE',
-      headers: this.#headers
+      headers: this.#headers,
+      credentials: 'include',
     }));
   }
 
   likeCard(id) {
     return this.#handleServerResponse(fetch(`${this.#baseUrl}/cards/${id}/likes`, {
       method: 'PUT',
-      headers: this.#headers
+      headers: this.#headers,
+      credentials: 'include',
     }));
   }
 
   dislikeCard(id) {
     return this.#handleServerResponse(fetch(`${this.#baseUrl}/cards/${id}/likes`, {
       method: 'DELETE',
-      headers: this.#headers
+      headers: this.#headers,
+      credentials: 'include',
     }));
   }
 }
