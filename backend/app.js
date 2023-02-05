@@ -11,7 +11,7 @@ const app = express();
 const allowedCors = [
   'https://mesto.irinpingviiin.nomoredomainsclub.ru',
   'http://mesto.irinpingviiin.nomoredomainsclub.ru',
-  'localhost:3000'
+  'http://localhost:3000'
 ];
 
 app.use(cookieParser());

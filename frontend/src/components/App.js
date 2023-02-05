@@ -59,7 +59,7 @@ function App() {
       authApi.validateToken(token)
         .then(res => {
           setLoggedIn(true);
-          setUserEmail(res.data.email);
+          setUserEmail(res.email);
           history.push('/');
         })
         .catch(error => console.log(error));
@@ -105,7 +105,7 @@ function App() {
   }
 
   function handleCardLike(card) {
-    const isLiked = card.likes.some(element => element._id === currentUser._id);
+    const isLiked = card.likes.some(element => element === currentUser._id);
 
     if (isLiked) {
       api.dislikeCard(card._id)
